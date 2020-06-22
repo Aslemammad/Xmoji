@@ -1,0 +1,16 @@
+ {
+     "compilerOptions": {
+
+         "noImplicitAny": false,
+         "sourceMap": true,
+         "outDir": "build",
+         "baseUrl": ".",
+         "types": ["node"],
+         "typeRoots": ["../node_modules/@types"]
+
+     },
+
+     "files": [
+         "src/electron.ts"
+     ]
+ }
