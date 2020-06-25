@@ -27,13 +27,12 @@ const createWindow = (emoji: boolean, x: number, y: number) => {
   // and load the index.html of the app.
   const route = emoji ? '#/tab' : '';
   mainWindow.loadURL(
-    isDev ? `http://localhost:5006` + route : `file://${path.join(__dirname, '../build/index.html')}${route}`,
+    isDev ? `http://localhost:5006${route}` : `file://${path.join(__dirname, '../build/index.html')}${route}`,
   );
   route && mainWindow.on('blur', () => mainWindow.close());
 
   // Open the DevTools.
-  // isDev &&
-  mainWindow.webContents.openDevTools();
+  isDev && mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
