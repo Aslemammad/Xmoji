@@ -2,8 +2,6 @@
 const { app, BrowserWindow, Menu, globalShortcut, Tray } = require('electron');
 const path = require('path');
 const robotjs = require('robotjs');
-const url = require('url');
-
 const isDev = process.env.ELECTRON_ENV === 'development';
 isDev && require('electron-reload')(__dirname);
 const createWindow = (emoji: boolean, x: number, y: number) => {
@@ -32,7 +30,8 @@ const createWindow = (emoji: boolean, x: number, y: number) => {
   route && mainWindow.on('blur', () => mainWindow.close());
 
   // Open the DevTools.
-  isDev && mainWindow.webContents.openDevTools();
+  // isDev &&
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;

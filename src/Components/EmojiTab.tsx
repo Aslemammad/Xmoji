@@ -15,10 +15,12 @@ const EmojiTab = () => {
       currentWindow.close();
     }
   };
-  const handleSelect = (emoji: any) => {
+  const handleSelect = (emoji: any, event: any) => {
     setEmojis([...emojis, emoji.native]);
-    clipboard.copy(emojis.join(''));
   };
+  useEffect(() => {
+    clipboard.copy(emojis.join(''));
+  }, [emojis]);
 
   useEffect(() => {
     document.addEventListener('keydown', handleEsc, false);
@@ -34,7 +36,7 @@ const EmojiTab = () => {
         set={state.set}
         theme={state.darkMode ? 'dark' : 'light'}
         style={{ position: 'absolute', width: '100%', height: '100%' }}
-        onSelect={handleSelect}
+        onClick={handleSelect}
       />
     </div>
   );
