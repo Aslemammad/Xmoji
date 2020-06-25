@@ -2,6 +2,7 @@
     "name": "xmoji",
     "version": "0.1.0",
     "private": true,
+    "main": "build/electron.js",
     "homepage": "./",
     "author": "Forsythe-jones (bagher.codes or Aslemammad)",
     "dependencies": {
@@ -32,9 +33,9 @@
         "ts-build": "tsc -p nodeTsconfig.json",
         "server": "lite-server -c lite-server.json",
         "electron": "npm run electron-build && electron ./build/electron.js",
-        "dev": "concurrently \"BROWSER=none PORT=5006 yarn start\" \"wait-on http://localhost:5006 && tsc -w -p nodeTsconfig.json\" \"wait-on http://localhost:5006 && ELECTRON_ENV=development electron ./build/electron.js\"",
+        "dev": "concurrently \"BROWSER=none PORT=5006 yarn start\" \"wait-on http://localhost:5006 && tsc -w -p nodeTsconfig.json\" \"wait-on http://localhost:5006 && nodemon --exec \"\"ELECTRON_ENV=development electron ./build/electron.js\"\" \"",
         "preelectron-pack": "yarn build",
-        "electron-dev": "npm run ts-build &&  concurrently \"BROWSER=none PORT=5006 yarn start \" \"wait-on http://localhost:5006 && electron ./build/electron.js\"",
+        "electron-dev": "npm run ts-build &&  concurrently \"BROWSER=none PORT=5006 yarn start \" \"wait-on http://localhost:5006 && nodemon --exec \"\"electron ./build/electron.js\"\"\"",
         "full-build": "npm-run-all build ts-build",
         "run": "electron build/electron.js"
     },
@@ -42,7 +43,8 @@
         "appId": "com.main.electron-xmoji",
         "files": [
             "build/**/*",
-            "node_modules/**/*"
+            "node_modules/**/*",
+            "package.json"
         ],
         "directories": {
             "buildResources": "assets"

@@ -2,7 +2,6 @@ import React from 'react';
 
 import logo from './logo.jpg';
 import { useGlobalState, useSetGlobaleState } from './Store';
-
 import {
   Grid,
   Typography,
@@ -19,7 +18,6 @@ import {
   Select,
   MenuItem,
 } from '@material-ui/core';
-
 const App = () => {
   const [state, setState] = [useGlobalState(), useSetGlobaleState()];
   const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
