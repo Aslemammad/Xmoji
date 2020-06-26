@@ -23,14 +23,14 @@ git clone https://github.com/Aslemammad/Xmoji
 
 ## Build
 
-first You need to install the npm packages:
+first You need to install the npm packages, but we need the dependencies of robot js, So check <a href="https://robotjs.io/docs/building">here</a>, then:
 
 ```bash
 npm install .
 ```
 
 
-We need to rebuild robotjs:<br>
+We need to <a href="https://robotjs.io/docs/electron">rebuild robotjs</a> :<br>
 
   
 
