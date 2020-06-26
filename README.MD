@@ -55,7 +55,7 @@ Then run the project and mark the <i>Add to startup</i> option.
 ```bash
 npm run run
 ```
-🎉Congratulations, You have emoji picker in your OS.
+🎉Congratulations, You have emoji picker in your OS. Just enter Shortcut <i>Control + Win(Command) + Space</i>
 
   
 
