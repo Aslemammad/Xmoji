@@ -52,7 +52,10 @@ The next step is building our project, so: <br>
 npm run full-build
 ```
 Then run the project and mark the <i>Add to startup</i> option.
-<br>🎉Congratulations, You have emoji picker in your OS.
+```bash
+npm run run
+```
+🎉Congratulations, You have emoji picker in your OS.
 
   
 
