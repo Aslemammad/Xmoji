@@ -4,9 +4,8 @@ const electronStore = window.require('electron-store');
 const path = window.require('path');
 const startup = window.require('user-startup');
 
-const execPath = `${path.join(__dirname, '../node_modules/.bin/electron')}`;
-const execArgs = `${path.join(__dirname, '../build/electron.js')}`;
-
+const execPath = `${path.join(path.resolve(), '/node_modules/.bin/electron')}`;
+const execArgs = [`${path.join(path.resolve(), '/build/electron.js')}`];
 const config = new electronStore();
 
 const StateContext = React.createContext<GlobalInterface | undefined>(undefined);
@@ -34,7 +33,7 @@ export const StateProvider = ({ children }: { children: React.ReactNode }) => {
     config.set('xmoji', state);
 
     if (state.startup) {
-      startup.create('Xmoji', execPath, execArgs);
+      startup.add('Xmoji', execPath, execArgs);
     } else if (!state.startup) {
       startup.remove('Xmoji');
     }

@@ -1,85 +1,92 @@
 {
-    "name": "xmoji",
-    "version": "0.1.0",
-    "private": true,
-    "main": "build/electron.js",
-    "homepage": "./",
-    "author": "Forsythe-jones (bagher.codes or Aslemammad)",
-    "dependencies": {
-        "@material-ui/core": "^4.10.2",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.3.2",
-        "@testing-library/user-event": "^7.1.2",
-        "@types/emoji-mart": "^3.0.2",
-        "@types/jest": "^24.0.0",
-        "@types/react-dom": "^16.9.0",
-        "concurrently": "^5.2.0",
-        "electron-store": "^5.2.0",
-        "emoji-mart": "^3.0.0",
-        "node-gyp": "^6.1.0",
-        "node-hid": "^1.2.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-router-dom": "^5.2.0",
-        "react-scripts": "3.4.1",
-        "robotjs": "^0.6.0",
-        "typescript": "~3.7.2",
-        "use-clipboard-copy": "^0.1.2",
-        "user-startup": "^0.2.2",
-        "wait-on": "^5.0.1"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "ts-build": "tsc -p nodeTsconfig.json",
-        "server": "lite-server -c lite-server.json",
-        "electron": "npm run electron-build && electron ./build/electron.js",
-        "dev": "concurrently \"BROWSER=none PORT=5006 yarn start\" \"wait-on http://localhost:5006 && tsc -w -p nodeTsconfig.json\" \"wait-on http://localhost:5006 && nodemon --exec \"\"ELECTRON_ENV=development electron ./build/electron.js\"\" \"",
-        "preelectron-pack": "yarn build",
-        "electron-dev": "npm run ts-build &&  concurrently \"BROWSER=none PORT=5006 yarn start \" \"wait-on http://localhost:5006 && nodemon --exec \"\"electron ./build/electron.js\"\"\"",
-        "full-build": "npm-run-all build ts-build",
-        "run": "electron build/electron.js"
-    },
-    "build": {
-        "appId": "com.main.electron-xmoji",
-        "files": [
-            "build/**/*",
-            "node_modules/**/*",
-            "package.json"
-        ],
-        "directories": {
-            "buildResources": "assets"
-        }
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "@types/node": "^12.12.47",
-        "@types/react": "^16.9.38",
-        "@types/react-router-dom": "^5.1.5",
-        "@typescript-eslint/eslint-plugin": "^3.3.0",
-        "@typescript-eslint/parser": "^3.3.0",
-        "electron": "^9.0.5",
-        "electron-builder": "^22.7.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-config-react": "^1.1.7",
-        "eslint-plugin-prettier": "^3.1.4",
-        "foreman": "^3.0.1",
-        "lite-server": "^2.5.4",
-        "npm-run-all": "^4.1.5",
-        "prettier": "^2.0.5"
+  "name": "xmoji",
+  "version": "0.1.0",
+  "private": true,
+  "main": "build/electron.js",
+  "homepage": "./",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aslemammad/Xmoji"
+  },
+  "author": "Forsythe-jones (bagher.codes or Aslemammad)",
+  "dependencies": {
+    "@material-ui/core": "^4.10.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/emoji-mart": "^3.0.2",
+    "@types/jest": "^24.0.0",
+    "@types/react-dom": "^16.9.0",
+    "concurrently": "^5.2.0",
+    "electron-store": "^5.2.0",
+    "emoji-mart": "^3.0.0",
+    "node-gyp": "^6.1.0",
+    "node-hid": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "robotjs": "^0.6.0",
+    "typescript": "~3.7.2",
+    "use-clipboard-copy": "^0.1.2",
+    "user-startup": "^0.2.2",
+    "wait-on": "^5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "ts-build": "tsc -p nodeTsconfig.json",
+    "server": "lite-server -c lite-server.json",
+    "electron": "npm run electron-build && electron ./build/electron.js",
+    "dev": "concurrently \"BROWSER=none PORT=5006 yarn start\" \"wait-on http://localhost:5006 && tsc -w -p nodeTsconfig.json\" \"wait-on http://localhost:5006 && nodemon --exec \"\"ELECTRON_ENV=development electron ./build/electron.js\"\" \"",
+    "preelectron-pack": "yarn build",
+    "electron-dev": "npm run ts-build &&  concurrently \"BROWSER=none PORT=5006 yarn start \" \"wait-on http://localhost:5006 && nodemon --exec \"\"electron ./build/electron.js\"\"\"",
+    "full-build": "npm-run-all build ts-build",
+    "run": "electron build/electron.js"
+  },
+  "engines": {
+    "node": "==14.0.0"
+  },
+  "build": {
+    "appId": "com.main.electron-xmoji",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
     }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.47",
+    "@types/react": "^16.9.38",
+    "@types/react-router-dom": "^5.1.5",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "electron": "^9.0.5",
+    "electron-builder": "^22.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.4",
+    "foreman": "^3.0.1",
+    "lite-server": "^2.5.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5"
+  }
 }

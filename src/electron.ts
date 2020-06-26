@@ -30,7 +30,7 @@ const createWindow = (emoji: boolean, x: number, y: number) => {
   route && mainWindow.on('blur', () => mainWindow.close());
 
   // Open the DevTools.
-  isDev && mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
