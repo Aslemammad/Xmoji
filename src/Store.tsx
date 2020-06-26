@@ -2,13 +2,13 @@ import React from 'react';
 import GlobalInterface from './interfaces/GlobalInterface';
 const electronStore = window.require('electron-store');
 const path = window.require('path');
-const autoLaunch = window.require('auto-launch');
+const startup = window.require('user-startup');
+
+const execPath = `${path.join(__dirname, '../node_modules/.bin/electron')}`;
+const execArgs = `${path.join(__dirname, '../build/electron.js')}`;
 
 const config = new electronStore();
-const xmojiLauncher = new autoLaunch({
-  name: 'Xmoji',
-  path: `${path.join(__dirname, '../build/electron.js')}`,
-});
+
 const StateContext = React.createContext<GlobalInterface | undefined>(undefined);
 const SetStateContext = React.createContext<any | undefined>(undefined);
 
@@ -33,13 +33,11 @@ export const StateProvider = ({ children }: { children: React.ReactNode }) => {
   React.useEffect(() => {
     config.set('xmoji', state);
 
-    xmojiLauncher.isEnabled().then((isEnabled: boolean) => {
-      if (state.startup && !isEnabled) {
-        xmojiLauncher.enable();
-      } else if (!state.startup) {
-        xmojiLauncher.disable();
-      }
-    });
+    if (state.startup) {
+      startup.create('Xmoji', execPath, execArgs);
+    } else if (!state.startup) {
+      startup.remove('Xmoji');
+    }
   }, [state]);
   return (
     <StateContext.Provider value={state}>
