@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'emoji-mart/css/emoji-mart.css';
-import { Picker } from 'emoji-mart';
+import { Picker, Emoji } from 'emoji-mart';
 import { useGlobalState, useSetGlobaleState } from '../Store';
 import { useClipboard } from 'use-clipboard-copy';
 const { remote } = window.require('electron');
@@ -31,14 +31,13 @@ const EmojiTab = () => {
   }, []);
 
   return (
-    <div className="">
-      <Picker
-        set={state.set}
-        theme={state.darkMode ? 'dark' : 'light'}
-        style={{ position: 'absolute', width: '100%', height: '100%' }}
-        onClick={handleSelect}
-      />
-    </div>
+    <Picker
+      set={state.set}
+      title={`Selected emojis: ${emojis.join('')}`}
+      theme={state.darkMode ? 'dark' : 'light'}
+      style={{ position: 'absolute', width: '100%', height: '100%' }}
+      onClick={handleSelect}
+    />
   );
 };
 
