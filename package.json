@@ -80,7 +80,7 @@
     "@types/react-router-dom": "^5.1.5",
     "@typescript-eslint/eslint-plugin": "^3.3.0",
     "@typescript-eslint/parser": "^3.3.0",
-    "electron": "^9.0.5",
+    "electron": "^15.5.5",
     "electron-builder": "^22.7.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react": "^1.1.7",
